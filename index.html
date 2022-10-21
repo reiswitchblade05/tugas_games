@@ -1,0 +1,100 @@
+<?php
+    include 'koneksi.php';
+
+    require 'functions.php';
+    if(isset($_SESSION["id"])){
+        header("Location: index.php");
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter</title>
+    <link rel="stylesheet" href="asset/styleentry.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body style="background-image: url(asset/mist.png);">
+    <div class="container" style="width: 1000px; height: 100vh; background-color: white;">
+        <div class="login-box" style="display: none;" id="enter">
+            <h1>LOGIN</h1>
+            <form name="myName" action="#">
+                <input type="hidden" id="action" value="login">
+                <div class="UN">
+                    <p>Username</p>
+                    <input type="text" id="username" placeholder="Username">
+                    <p class="error-un" style="color: red;"></p>
+                </div>
+                <div class="PS">
+                    <p>Password</p>
+                    <input type="password" id="password" placeholder="Password">
+                    <p class="error-ps" style="color: red;"></p>
+                </div>
+                <p class="reflip" onclick="reflip()">Register Here</p>
+                <div class="save-btn">
+                    <input type="submit" value="ENTER" onclick="redirect()">
+                </div>
+            </form>
+        </div>
+        <div class="register-box" id="regist">
+            <h1>REGISTER</h1>
+            <form name="myName" action="#">
+                <input type="hidden" id="action" value="register">
+                <div class="FN">
+                    <p>Fullname</p>
+                    <input type="text" id="fullname" placeholder="Fullname">
+                    <p class="error-fn" style="color: red;"></p>
+                </div>
+                <div class="UN">
+                    <p>Username</p>
+                    <input type="text" id="username" placeholder="Username">
+                    <p class="error-un" style="color: red;"></p>
+                </div>
+                <div class="PS">
+                    <p>Password</p>
+                    <input type="password" id="password" placeholder="Password">
+                    <p class="error-ps" style="color: red;"></p>
+                </div>
+                <div class="apply-btn">
+                    <input type="submit" value="REGISTER" onclick="flip()">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function flip(){
+            document.getElementById("enter").style.display = "block";
+            document.getElementById("regist").style.display = "none";
+        }
+        function reflip(){
+            document.getElementById("enter").style.display = "none";
+            document.getElementById("regist").style.display = "block";
+        }
+
+        function redirect(){
+
+        swal({
+            title: "You have entered.",
+            text: "😈 WELCOME TO HELL 😈",
+            icon: "success",
+            buttons: false,
+        });
+
+            var time;
+            time=setTimeout(hasil,5000);
+
+        }
+
+        function hasil(){
+            window.location.href = "game.html";
+        }
+
+    </script>
+</body>
+</html>

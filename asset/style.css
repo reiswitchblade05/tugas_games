@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Mono', monospace;
+}
+
+body{
+    background-image: url(lobbybg.jpeg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.form{
+    position: absolute;
+    left: 31%;
+    margin-top: 170px;
+}
+
+.title{
+    border: red 1px solid;
+    border-radius: 10px;
+    width: 540px;
+    background-color: rgba(0, 0, 0, 0.712);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.title p{
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.game-input{
+    padding: 20px;
+    border: red 1px solid;
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.712);
+    font-weight: bold;
+}
+
+.footer{
+    background-color: red;
+    position: absolute;
+    width: 1345px;
+    padding: 10px;
+    margin-top: 613px;
+    text-align: center;
+}
+
+canvas {
+    border:1px solid red;
+    border-radius: 21px;
+    background-image: url(gamebg.gif);
+    margin-left: 23px;
+    margin-top: 50px;
+}
+
+.crash{
+    top: 32%;
+    left: 16%;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    color: red;
+}
+
