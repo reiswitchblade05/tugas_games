@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(lobbybg.jpeg);
+    background-image: url(../asset/lobbybg.jpeg);
     background-size: cover;
     height: 100vh;
 }
@@ -13,7 +13,7 @@ body{
 .form{
     position: absolute;
     left: 31%;
-    margin-top: 170px;
+    margin-top: 160px;
 }
 
 .title{
@@ -52,7 +52,7 @@ body{
 canvas {
     border:1px solid red;
     border-radius: 21px;
-    background-image: url(gamebg.gif);
+    background-image: url(../asset/gamebg.gif);
     margin-left: 23px;
     margin-top: 50px;
 }
@@ -64,5 +64,9 @@ canvas {
     font-weight: bold;
     position: absolute;
     color: red;
+}
+
+.userplay{
+    position: absolute;
 }
 

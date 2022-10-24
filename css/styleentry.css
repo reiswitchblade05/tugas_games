@@ -6,10 +6,10 @@
 
 .register-box{
     position: absolute;
-    margin-top: 110px;
+    margin-top: 80px;
     margin-left: 300px;
     width: 330px;
-    height: 362px;
+    height: 400px;
     padding: 30px;
     border-radius: 20px;
     border: 2px solid #202020;
@@ -81,7 +81,11 @@
     margin-top: 10px;
 }
 
-.apply-btn input{
+.flip{
+    margin-top: 10px;
+}
+
+.apply-btn button{
     margin-top: 20px;
     width: 325px;
     text-align: center;
@@ -95,7 +99,7 @@
     font-weight: bold;
 }
 
-.save-btn input{
+.save-btn button{
     margin-top: 20px;
     width: 325px;
     text-align: center;

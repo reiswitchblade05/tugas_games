@@ -1,10 +1,20 @@
+<?php
+    require 'functions.php';
+    if(isset($_SESSION["id"])){
+        $id = $_SESSION["id"];
+        $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM db_gamers WHERE id = $id"));
+    } else {
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="css/stylegame.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,10 +26,11 @@
         <div class="form" id="inputform">
         <div class="title">
             <h1 style="color: red;">☣ HELL'S GATES ☣</h1>
-            <p style="color: red;">Keluar Tanduknya, Trus Ekornya Melayang. wadidaw :v</p>
+            <p style="color: red; font-style: italic;">"Keluar Tanduknya, Trus Ekornya Melayang. wadidaw :v"</p>
+            <p style="color: red;">- Pak Agus, September 2022 😉</p>
         </div>
         <div class="game-input">
-            <p style="color: red;">Player : </p> <br>
+            <p style="color: red;">Player : <?= $user['username'];?> #<?= $user['id'] ?></p><br>
             <div style="display: flex; align-items: center; "> 
                 <p style="color: red;">Pilih Warna : </p><input style="margin-left: 15px; width: 50px;" type="color" id="warna">
             </div> 
@@ -32,9 +43,9 @@
             <p>🙂 Developed by : RAFI REI RIORDAN 🥰</p>
         </div>
     </div>
-
     <div id="content" style="display: none;">
-        <div id="area"><canvas id="game" style="display: none;"></canvas></div>
+    <p id="gamer" style="font-weight: bold; position: absolute;z-index: 3; left: 3%; ">Player : <?= $user['username'];?> #<?= $user['id'] ?></p>
+    <div id="area"><canvas id="game" style="display: none;"></canvas></div>
         <p class="crash" id="failure" style="display: none;">YOU HAVE FAILED. What action do you want to take?</p>
         <div id="buttons" style="display: none; text-align:center; width:600px; margin-left: 375px; margin-top: 25px;">
             <button onclick="reset()" style="background-color: black; color: red; border: 1px solid red; padding: 5px; border-radius: 7px; font-size: 21px; margin-top: 10px;">≪ TRY AGAIN</button>
@@ -45,6 +56,7 @@
         var myGamePiece;
         var myObstacles = [];
         var myScore;
+        var player = document.getElementById("gamer");
 
         function Play(){
 
@@ -56,10 +68,10 @@
 
             var a = document.getElementById("warna").value;
             myGamePiece = new component(30, 30, a, 10, 130);
-            myScore = new component("30px", "Space Mono", "white", 280, 40, "text");
+            myScore = new component("30px", "Space Mono", "white", 1000, 40, "text");
             myGameArea.start();
+            player.style.color = a;
             myObstacles = [];
-
         }
     
             var myGameArea = {
@@ -133,6 +145,7 @@
                         document.getElementById("game").style.filter = "grayscale(100%)";
                         document.getElementById("failure").style.display = "block";
                         document.getElementById("buttons").style.display = "block";
+                        document.getElementById("gamer").style.filter = "grayscale(100%)";
                         myGameArea.stop();
                         return;
                     } 
@@ -195,15 +208,15 @@
 
             function reset(){
                 document.getElementById("game").style.filter = "grayscale(0%)";
+                document.getElementById("gamer").style.filter = "grayscale(0%)";
                 myGameArea.stop();
                 myGameArea.clear();
                 Play();
             }
 
             function expel(){
-                window.location.href = "index.html";
+                window.location.href = 'logout.php';
             }
-
     </script>
 </body>
 </html>
